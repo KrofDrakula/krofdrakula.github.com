@@ -14,14 +14,19 @@
     });
     
     // Table of contents
-    updateTOC(document.querySelector('#toc'), ['toc', 'main']);
+    updateTOC(document.querySelector('#toc'), ['toc', 'main', 'back-to-top']);
     
     // Make all external links open in new windows
     Q('a[href]').forEach(function(link) {
-        if (/^https?:\/\//g.test(link.href))
+        if (/^https?:\/\//g.test(link.getAttribute('href')))
             link.target = '_blank';
     });
     
+    // Back to top link visibility
+    var backToTop = Q('#back-to-top')[0];
+    window.addEventListener('scroll', function() {
+        backToTop.style.display = window.scrollY > 0 ? 'block' : 'none';
+    });
     
     // Utility functions
     function removeClass(el, className) {
