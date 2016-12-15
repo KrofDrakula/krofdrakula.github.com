@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+          (function() {
+            var l = window.location;
+            if ('https:' !== l.protocol)
+              l.replace('https://' + l.host + l.pathname + l.hash);
+          })();
+        </script>
         <meta charset="utf-8"/>
         <meta name="viewport" content="initial-scale=1"/>
         <title>Klemen Slavič</title>
